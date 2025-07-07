@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>رسالة لنفسك في المستقبل</title>
+  <style>
+    body {
+      font-family: 'Tahoma', sans-serif;
+      background: linear-gradient(135deg, #c3e0ff, #e0c3fc);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+    textarea {
+      width: 90%;
+      height: 150px;
+      border-radius: 10px;
+      border: 1px solid #aaa;
+      padding: 1rem;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    select, input[type="email"] {
+      padding: 0.5rem;
+      margin: 0.5rem;
+      border-radius: 8px;
+      border: 1px solid #888;
+    }
+    button {
+      padding: 0.7rem 2rem;
+      background: #6a5acd;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #483d8b;
+    }
+    .quote {
+      margin-top: 3rem;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>✉️ اكتب رسالة لنفسك في المستقبل</h1>
+  <p>دوّن مشاعرك وأحلامك اليوم، واستلمها بعد سنة أو أكثر لتتذكر من كنت.</p>
+
+  <textarea placeholder="اكتب رسالتك هنا..."></textarea><br>
+
+  <select>
+    <option>اختر متى توصلك</option>
+    <option>بعد سنة</option>
+    <option>بعد 3 سنوات</option>
+    <option>بعد 5 سنوات</option>
+  </select>
+
+  <input type="email" placeholder="ايميلك"><br>
+
+  <button onclick="sendLetter()">احفظها للمستقبل 🌱</button>
+
+  <div class="quote" id="quote"></div>
+
+  <script>
+    function sendLetter() {
+      const message = document.querySelector('textarea').value;
+      const time = document.querySelector('select').value;
+      const email = document.querySelector('input[type="email"]').value;
+
+      if (!message || time === 'اختر متى توصلك' || !email) {
+        alert('رجاءً املأ جميع الحقول بشكل صحيح.');
+        return;
+      }
+      alert(`🚀 تم حفظ رسالتك!\nسوف ترسل إلى ${email} ${time}.`);
+    }
+
+    // اقتباسات متغيرة
+    const quotes = [
+      "الحياة قصيرة جدًا لتعيشها دون أن تكتبها...",
+      "رسالتك اليوم، قد تنقذك غدًا.",
+      "كن صادقًا مع نفسك التي ستقرأ هذه لاحقًا.",
+      "ما أجمل أن تتذكر مشاعرك بعد سنين." 
+    ];
+    document.getElementById('quote').textContent = quotes[Math.floor(Math.random()*quotes.length)];
+  </script>
+
+</body>
+</html>
